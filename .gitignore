@@ -10,7 +10,7 @@ wheels/
 .venv
 
 # SysDash database
-sysdash.db
+services.db
 services.db-wal
 services.db-shm
 
