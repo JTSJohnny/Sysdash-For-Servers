@@ -1,6 +1,7 @@
 # SysDash
 
 SysDash is an automated, personal server management dashboard. It simplifies the process of deploying local web applications to the public internet by automatically handling `systemd` daemon creation and `cloudflared` tunnel routing.
+<img width="1910" height="999" alt="Dashboard" src="https://github.com/user-attachments/assets/2943a39b-8a1f-4ce3-b014-ce62c4cede39" />
 
 ## Features
 
