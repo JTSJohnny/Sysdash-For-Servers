@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+  <title>{% block title %}SysDash{% endblock %}</title>
+</head>
+
+<body class="layout-simple">
+  <aside>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('dash') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('add_app_page') }}">Add App</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <header>
+    <h3>Server Management</h3>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

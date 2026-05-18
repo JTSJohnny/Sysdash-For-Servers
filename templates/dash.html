@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to SysDash{% endblock %}
+
+{% block content %}
+<article>
+ <h1>Apps</h1>
+ {% if apps%}
+    <table>
+
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Domain</th>
+                <th>Port</th>
+                <th>Filepath</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in apps %}
+            <tr>
+                <td>{{ app['name'] }}</td>
+                <td>
+                    {% if app['sv_status'] == 'active' %}
+                        <span style="color: green; font-weight: bold;">{{ app['sv_status'] }}</span>
+                    {% elif app['sv_status'] == 'failed' %}
+                        <span style="color: red; font-weight: bold;">{{ app['sv_status'] }}</span>
+                    {% else %}
+                        <span style="color: grey;">{{ app['sv_status'] }}</span>
+                    {% endif %}
+                </td>
+                <td>{{ app['domain'] }}</td>
+                <td>{{ app['port'] }}</td>
+                <td>{{ app['filepath'] }}</td>
+                <td>
+                    <a href="{{ url_for('serv_start', name=app['name']) }}">Start</a>
+                    <a href="{{ url_for('serv_stop', name=app['name']) }}">Stop</a>
+                    <a href="{{ url_for('serv_restart', name=app['name']) }}">Restart</a>
+                    <a href="{{ url_for('serv_delete', name=app['name']) }}" style="color: red;" onclick="return confirm('Are you sure you want to delete this app?');">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No apps found</p>
+    {% endif %}
+
+</article>
+{% endblock %}
