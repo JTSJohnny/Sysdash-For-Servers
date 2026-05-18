@@ -39,7 +39,7 @@ Because SysDash needs to create systemd unit files in `/etc/systemd/system/` and
 
 ```bash
 # Example command to start the server as root
-sudo /home/johnny/.local/bin/uv run uvicorn main:app --port=5001
+sudo uv run uvicorn main:app --port=5001
 ```
 
 Once running, access the dashboard at:
